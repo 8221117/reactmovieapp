@@ -44,13 +44,31 @@ const MovieList =({user})=>{
 
    const[poster,setPoster] = useState("");
 
-   function addMovie(){
+   function addMovie(e){
 
-     console.log("adding the movie data");
-     console.log(moviename);
-     console.log(rating);
-     console.log(summary);
-     console.log(poster);
+
+    e.preventDefault();
+    //  console.log("adding the movie data");
+    //  console.log(moviename);
+    //  console.log(rating);
+    //  console.log(summary);
+    //  console.log(poster);
+    const newObj={
+      name:moviename,
+      rating:rating,
+      summary:summary,
+      poster:poster,
+    
+    }
+
+    var temparr=[...data,newObj]
+    setData(temparr);
+
+
+    setName(" ");
+    setRating(" ");
+    setSummary("");
+    setPoster("")
 
    }
 
@@ -58,6 +76,7 @@ const MovieList =({user})=>{
 
    function addName(e){
 
+   
     setName(e.target.value)
 
    }
@@ -67,19 +86,19 @@ const MovieList =({user})=>{
   return (
     <div>
       <form>
-        MovieName:<input type="text" name="moviename" onChange={addName}></input>
+        MovieName:<input type="text" name="moviename" value={moviename} onChange={addName}></input>
         <br></br>
-        Rating:<input type="number" step="any" name="rating" onChange={(e)=>{setRating(e.target.value)}}></input>
+        Rating:<input type="number" step="any" name="rating" value={rating} onChange={(e)=>{setRating(e.target.value)}}></input>
         <br></br>
-        Summary:<input type="text" name="summary" onChange={(e)=>{setSummary(e.target.value)}}></input>
+        Summary:<input type="text" name="summary" value={summary} onChange={(e)=>{setSummary(e.target.value)}}></input>
         <br></br>
-        PosterLink:<input type="text" name="poster" onChange={(e)=>{setPoster(e.target.value)}}></input>
+        PosterLink:<input type="text" name="poster" value={poster} onChange={(e)=>{setPoster(e.target.value)}}></input>
         <br></br>
         <button onClick={addMovie}>Sumit</button>
       </form>
      <ul>
        {data.map((eachmovie)=>(
-       <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster}></MovieListItem>
+       <MovieListItem name={eachmovie.name} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster}></MovieListItem>
        
        ))}
      </ul>
