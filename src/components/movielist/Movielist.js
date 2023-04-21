@@ -45,7 +45,7 @@ const MovieList =(user)=>{
    const[poster,setPoster] = useState("");
 
 
-
+   console.log("test changes");
 
   return (
     <div>
