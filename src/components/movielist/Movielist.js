@@ -54,7 +54,7 @@ const MovieList =({user})=>{
     //  console.log(summary);
     //  console.log(poster);
     const newObj={
-      name:moviename,
+      moviename:moviename,
       rating:rating,
       summary:summary,
       poster:poster,
@@ -98,7 +98,7 @@ const MovieList =({user})=>{
       </form>
      <ul>
        {data.map((eachmovie)=>(
-       <MovieListItem name={eachmovie.name} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster}></MovieListItem>
+       <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster}></MovieListItem>
        
        ))}
      </ul>
