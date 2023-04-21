@@ -30,7 +30,7 @@ import MovieListItem from "./Movielistitem";
 // }]
 
 
-const MovieList =(user)=>{
+const MovieList =({user})=>{
 
    const newList = [...user]
 
@@ -44,21 +44,38 @@ const MovieList =(user)=>{
 
    const[poster,setPoster] = useState("");
 
+   function addMovie(){
 
-   console.log("test changes");
+     console.log("adding the movie data");
+     console.log(moviename);
+     console.log(rating);
+     console.log(summary);
+     console.log(poster);
+
+   }
+
+
+
+   function addName(e){
+
+    setName(e.target.value)
+
+   }
+
+   //console.log("test changes");
 
   return (
     <div>
       <form>
-        <input type="text" name="moviename"></input>
+        MovieName:<input type="text" name="moviename" onChange={addName}></input>
         <br></br>
-        <input type="number" name="rating"></input>
+        Rating:<input type="number" step="any" name="rating" onChange={(e)=>{setRating(e.target.value)}}></input>
         <br></br>
-        <input type="text" name="summary"></input>
+        Summary:<input type="text" name="summary" onChange={(e)=>{setSummary(e.target.value)}}></input>
         <br></br>
-        <input type="text" name="poster"></input>
+        PosterLink:<input type="text" name="poster" onChange={(e)=>{setPoster(e.target.value)}}></input>
         <br></br>
-        <button>Sumit</button>
+        <button onClick={addMovie}>Sumit</button>
       </form>
      <ul>
        {data.map((eachmovie)=>(
@@ -70,6 +87,7 @@ const MovieList =(user)=>{
    
      
     </div>
+    
 
   )
 };
