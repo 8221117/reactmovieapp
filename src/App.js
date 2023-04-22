@@ -1,6 +1,8 @@
 
 import './App.css';
 import MovieList from './components/movielist/Movielist';
+import ColorBox  from './components/movielist/colorboxgame';
+import { NavLink, Routes, Route } from "react-router-dom";
 
 var obj = [{
   moviename:"Jai Bhim",
@@ -39,7 +41,31 @@ function App() {
   return (
     <div className="App">
       
-      <MovieList user={obj}></MovieList>
+      
+      <ul>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/Movies-list">Movie List</NavLink>
+        </li>
+        <li>
+          <NavLink to="/color-game">Color Game</NavLink>
+        </li>
+      </ul>
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Movies-list" element={<MovieList user={obj}></MovieList>} />
+        <Route path="/color-game" element= { <ColorBox></ColorBox>} />
+        </Routes>
+    </div>
+  );
+}
+
+function Home() {
+  return (
+    <div>
+      <h1> Welcome to Movie APP😊😍</h1>
     </div>
   );
 }
