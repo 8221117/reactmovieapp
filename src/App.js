@@ -34,7 +34,7 @@ moviename:"Soorarai Pottru",
 
 
 
-
+const Initial_color_list = ["orange","red","green"];
 
 
 function App() {
@@ -56,7 +56,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Movies-list" element={<MovieList user={obj}></MovieList>} />
-        <Route path="/color-game" element= { <ColorBox></ColorBox>} />
+        <Route path="/color-game" element= { <ColorBox color={Initial_color_list}></ColorBox>} />
         </Routes>
     </div>
   );
