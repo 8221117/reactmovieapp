@@ -17,4 +17,4 @@ import { useState } from "react";
   );
 }
 
-export default ColorBox;
+export default ColorBox; 
