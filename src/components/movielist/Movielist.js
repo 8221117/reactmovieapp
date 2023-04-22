@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 
 import MovieListItem from "./Movielistitem";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 // var obj = [{
 //   moviename:"Jai Bhim",
@@ -86,16 +88,24 @@ const MovieList =({user})=>{
   return (
     <div>
       <form>
-        MovieName:<input type="text" name="moviename" value={moviename} onChange={addName}></input>
+        <TextField id="standard-basic" label="MovieName" variant="standard" type="text" name="moviename" value={moviename} onChange={addName} />
+        {/* MovieName:<input type="text" name="moviename" value={moviename} onChange={addName}></input> */}
         <br></br>
-        Rating:<input type="number" step="any" name="rating" value={rating} onChange={(e)=>{setRating(e.target.value)}}></input>
+        <TextField id="standard-basic" label="Rating" variant="standard" type="number" step="any" name="rating" value={rating} onChange={(e)=>{setRating(e.target.value)}} />
+        {/* Rating:<input type="number" step="any" name="rating" value={rating} onChange={(e)=>{setRating(e.target.value)}}></input> */}
         <br></br>
-        Summary:<input type="text" name="summary" value={summary} onChange={(e)=>{setSummary(e.target.value)}}></input>
+        <TextField id="standard-basic" label="Summary" variant="standard" type="text" name="summary" value={summary} onChange={(e)=>{setSummary(e.target.value)}} />
+        {/* Summary:<input type="text" name="summary" value={summary} onChange={(e)=>{setSummary(e.target.value)}}></input> */}
         <br></br>
-        PosterLink:<input type="text" name="poster" value={poster} onChange={(e)=>{setPoster(e.target.value)}}></input>
+        <TextField id="standard-basic" label="PosterLink" variant="standard" type="text" name="poster" value={poster} onChange={(e)=>{setPoster(e.target.value)}}/>
+        {/* PosterLink:<input type="text" name="poster" value={poster} onChange={(e)=>{setPoster(e.target.value)}}></input> */}
         <br></br>
-        <button onClick={addMovie}>Sumit</button>
+        {/* <button onClick={addMovie}>Submit</button> */}
+        <br></br>
+        <Button onClick={addMovie} variant="contained">Submit</Button>
       </form>
+      
+     <br></br>
      <ul>
        {data.map((eachmovie)=>(
        <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster}></MovieListItem>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Counter from  "./likeanddislikebutton";
+
 const MovieListItem = ({name,rating,summary,poster})=>{
 
 
@@ -12,6 +14,7 @@ return(
     <p>{summary}</p>
    
     <img src={poster} alt={name + "image"} ></img>
+    <Counter></Counter>
      </li>
   </div>
 
