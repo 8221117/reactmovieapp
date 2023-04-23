@@ -46,6 +46,8 @@ const MovieList =({user,parentfn})=>{
 
    const[poster,setPoster] = useState("");
 
+   const[trailer,setTrailer] = useState("");
+
    function addMovie(e){
 
 
@@ -60,6 +62,7 @@ const MovieList =({user,parentfn})=>{
       rating:rating,
       summary:summary,
       poster:poster,
+      trailer:trailer
     
     }
    
@@ -72,6 +75,7 @@ const MovieList =({user,parentfn})=>{
     setRating(" ");
     setSummary("");
     setPoster("")
+    setTrailer("")
 
    }
 
@@ -101,6 +105,8 @@ const MovieList =({user,parentfn})=>{
         <TextField id="standard-basic" label="PosterLink" variant="standard" type="text" name="poster" value={poster} onChange={(e)=>{setPoster(e.target.value)}}/>
         {/* PosterLink:<input type="text" name="poster" value={poster} onChange={(e)=>{setPoster(e.target.value)}}></input> */}
         <br></br>
+        <TextField id="standard-basic" label="TrailerLink" variant="standard" type="text" name="trailer" value={trailer} onChange={(e)=>{setTrailer(e.target.value)}}/>
+        <br></br>
         {/* <button onClick={addMovie}>Submit</button> */}
         <br></br>
         <Button onClick={addMovie} variant="contained">Submit</Button>
@@ -109,7 +115,7 @@ const MovieList =({user,parentfn})=>{
      <br></br>
      <ul>
        {data.map((eachmovie,index)=>(
-       <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} id={index}></MovieListItem>
+       <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index}></MovieListItem>
        
        ))}
      </ul>

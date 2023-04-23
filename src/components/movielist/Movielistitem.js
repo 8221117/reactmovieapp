@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from 'react-router-dom';
 
-const MovieListItem = ({name,rating,summary,poster,id})=>{
+const MovieListItem = ({name,rating,summary,poster,id,trailer})=>{
 
   const [show,setShow]= useState(false);
 
@@ -64,6 +64,13 @@ return(
     <br></br>
    
     <img src={poster} alt={name + "image"} ></img>
+     
+    {/* Trailer:<p>{trailer}</p>  */}
+    <br></br>
+    <a href={trailer} target="_blank">Click to watch the Trailer</a> 
+
+    
+     
     <Counter></Counter>
      </li>
   </div>
