@@ -8,7 +8,10 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const MovieListItem = ({name,rating,summary,poster})=>{
+import InfoIcon from '@mui/icons-material/Info';
+import { useNavigate } from 'react-router-dom';
+
+const MovieListItem = ({name,rating,summary,poster,id})=>{
 
   const [show,setShow]= useState(false);
 
@@ -21,13 +24,29 @@ const styles = {
   color: rating > 8 ? "green" : "red"
 };
 
+const navigate = useNavigate();
+
+console.log("MovieListItem",id);
 return(
 
   <div className='movie-container'>
     <li style={{background:"yellow", margin:10}}>
     <p className="movie-name">{name}</p> 
+
+    <IconButton onClick={()=>navigate(`/Movies-list/${id}`)} aria-label="i-button" color="primary">
+    <InfoIcon></InfoIcon>
+    </IconButton>
    
+    {/* <IconButton onClick={()=>navigate("/color-game")} aria-label="i-button" color="primary">
+    <InfoIcon></InfoIcon>
+    </IconButton> */}
+
+
+
     <p style={styles}>⭐{rating}</p>
+
+ 
+
     <IconButton onClick={()=>setShow(!show)} aria-label="toggle-description" color="primary">
      
     {show ? <ExpandLessIcon></ExpandLessIcon>:<ExpandMoreIcon></ExpandMoreIcon>}

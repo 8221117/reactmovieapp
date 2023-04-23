@@ -32,7 +32,7 @@ import TextField from '@mui/material/TextField';
 // }]
 
 
-const MovieList =({user})=>{
+const MovieList =({user,parentfn})=>{
 
    const newList = [...user]
 
@@ -62,8 +62,9 @@ const MovieList =({user})=>{
       poster:poster,
     
     }
-
+   
     var temparr=[...data,newObj]
+    parentfn(temparr)
     setData(temparr);
 
 
@@ -78,7 +79,7 @@ const MovieList =({user})=>{
 
    function addName(e){
 
-   
+    
     setName(e.target.value)
 
    }
@@ -107,8 +108,8 @@ const MovieList =({user})=>{
       
      <br></br>
      <ul>
-       {data.map((eachmovie)=>(
-       <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster}></MovieListItem>
+       {data.map((eachmovie,index)=>(
+       <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} id={index}></MovieListItem>
        
        ))}
      </ul>

@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 
 
 
- function TotalColorList({color}) {
+ function TotalColorList({color,parentfn}) {
   // const color = "red";
  // const [color, setColor] = useState("orange");
   const styles = {
@@ -21,11 +21,11 @@ import TextField from '@mui/material/TextField';
 
   function addColor(e){
 
-
+    
     e.preventDefault();
    
     const newObj=[colorname]
-
+    parentfn(newObj)
     var temparr=[...colorlist,newObj]
     setColorList(temparr);
 
@@ -44,6 +44,7 @@ import TextField from '@mui/material/TextField';
 
   return (
     <div>
+      {/* <Button onClick={()=>{parentfn(12345)}} variant="contained">Send to Parent</Button> */}
       <TextField id="standard-basic" label="color-Name" variant="standard" type="text" name="colorname" value={colorname} onChange={addName} />
       <Button onClick={addColor} variant="contained">Submit</Button>
       <br></br>

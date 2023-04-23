@@ -1,8 +1,9 @@
 
 import './App.css';
+import { useState } from "react";
 import MovieList from './components/movielist/Movielist';
-import ColorBox  from './components/movielist/colorboxgame';
-import { NavLink, Routes, Route } from "react-router-dom";
+import TotalColorList  from './components/movielist/colorboxgame';
+import { NavLink, Routes, Route,useNavigate,useParams } from "react-router-dom";
 
 var obj = [{
   moviename:"Jai Bhim",
@@ -37,7 +38,28 @@ moviename:"Soorarai Pottru",
 const Initial_color_list = ["orange","red","green"];
 
 
+
+
+
+
 function App() {
+ // const newList = [...obj];
+
+  // const[data,setData] = useState(newList); //lifting the state up (lifted from child to parent)
+
+  const[data,setData] = useState(obj);
+
+
+ 
+  function Parent(c){
+
+    console.log("Parent",c);
+    setData(c)
+
+  }
+
+
+
   return (
     <div className="App">
       
@@ -55,8 +77,9 @@ function App() {
       </ul>
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Movies-list" element={<MovieList user={obj}></MovieList>} />
-        <Route path="/color-game" element= { <ColorBox color={Initial_color_list}></ColorBox>} />
+        <Route path="/Movies-list" element={<MovieList  parentfn={Parent} user={obj}></MovieList>} />
+        <Route path="/Movies-list/:id" element={<MovieDetails movielist={data}></MovieDetails>} />
+        <Route path="/color-game" element= { <TotalColorList parentfn={Parent} color={Initial_color_list}></TotalColorList>} />
         </Routes>
     </div>
   );
@@ -68,6 +91,37 @@ function Home() {
       <h1> Welcome to Movie APP😊😍</h1>
     </div>
   );
+}
+
+function MovieDetails({movielist}) {
+
+  const {id}=useParams();  //to extract id(parameter) from the url
+
+ // const idname = useParams();
+
+  const array= movielist[id];
+  
+
+
+  //console.log("movie details component",movielist[id]);
+   console.log("checking array",array);
+console.log(movielist);
+  return(
+
+      <div>
+       <h1>
+        Movie Details of id {id} = {array.moviename}
+        {/* = {array.moviename} */}
+       </h1>
+       {/* <p>{array.moviename}</p> */}
+
+
+      </div>
+  
+  
+    )
+
+
 }
 
 export default App;
