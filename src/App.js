@@ -4,6 +4,9 @@ import { useState } from "react";
 import MovieList from './components/movielist/Movielist';
 import TotalColorList  from './components/movielist/colorboxgame';
 import { NavLink, Routes, Route,useNavigate,useParams } from "react-router-dom";
+import Button from '@mui/material/Button';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 var obj = [{
   moviename:"Jai Bhim",
@@ -100,6 +103,7 @@ function Home() {
 
 function MovieDetails({movielist}) {
 
+
   const {id}=useParams();  //to extract id(parameter) from the url
 
  // const idname = useParams();
@@ -111,6 +115,8 @@ function MovieDetails({movielist}) {
   //console.log("movie details component",movielist[id]);
    console.log("checking array",array);
 console.log(movielist);
+
+const navigate = useNavigate();
   return(
 
       <div>
@@ -131,9 +137,9 @@ console.log(movielist);
        </h1>
        {/* <p>{array.moviename}</p> */}
 
-
+       <Button onClick={()=> navigate(-1)}variant="contained"><ArrowBackIcon></ArrowBackIcon>Back</Button>
       </div>
-  
+      
   
     )
 
