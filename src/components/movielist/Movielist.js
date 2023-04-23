@@ -120,6 +120,7 @@ const MovieList =({user,parentfn})=>{
        ))}
      </ul>
 
+
    
      
     </div>
