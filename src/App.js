@@ -6,7 +6,7 @@ import TotalColorList  from './components/movielist/colorboxgame';
 import { NavLink, Routes, Route,useNavigate,useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
+ 
 
 var obj = [{
   moviename:"Jai Bhim",
@@ -88,6 +88,7 @@ function App() {
         <Route path="/Movies-list" element={<MovieList  parentfn={Parent} user={obj}></MovieList>} />
         <Route path="/Movies-list/:id" element={<MovieDetails movielist={data}></MovieDetails>} />
         <Route path="/color-game" element= { <TotalColorList parentfn={Parent} color={Initial_color_list}></TotalColorList>} />
+        <Route path="*" element={<NotFoundPage></NotFoundPage>}/>
         </Routes>
     </div>
   );
@@ -99,6 +100,17 @@ function Home() {
       <h1> Welcome to Movie APP😊😍</h1>
     </div>
   );
+}
+
+function NotFoundPage(){
+
+ return (
+  <div>
+  
+  <img src="https://cdn.dribbble.com/users/1175431/screenshots/6188233/media/507f015a7efd81cec270faf9c4f1aabd.gif" Alt="Page NOT Found"></img>
+  
+  </div>
+)
 }
 
 function MovieDetails({movielist}) {
