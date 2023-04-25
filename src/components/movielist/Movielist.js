@@ -116,7 +116,7 @@ const MovieList =({updateduser})=>{
     //  <br></br>
      <ul className="movie-list" >
        {updateduser.map((eachmovie,index)=>(
-       <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index}></MovieListItem>
+       <MovieListItem key={index} name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index}></MovieListItem>
        
        ))}
      </ul>

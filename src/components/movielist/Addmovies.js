@@ -1,4 +1,6 @@
-import React,{useState,useNavigate, navigate } from "react";
+import React,{useState} from "react";
+import {useNavigate} from "react-router-dom"
+
 
 // import MovieListItem from "./Movielistitem";
 import Button from '@mui/material/Button';
@@ -8,6 +10,8 @@ import TextField from '@mui/material/TextField';
 
 
 const Addmovieform =({user,parentfn})=>{
+
+  const navigate = useNavigate();
 
    const newList = [...user]
 
@@ -25,7 +29,7 @@ const Addmovieform =({user,parentfn})=>{
 
    function addMovie(e){
 
-
+    
     e.preventDefault();
     //  console.log("adding the movie data");
     //  console.log(moviename);
@@ -51,7 +55,8 @@ const Addmovieform =({user,parentfn})=>{
     setSummary("");
     setPoster("")
     setTrailer("")
-
+    navigate("/Movies");
+    
    }
 
 
@@ -88,7 +93,7 @@ const Addmovieform =({user,parentfn})=>{
         {/* <button onClick={addMovie}>Submit</button> */}
         <br></br>
         
-        <Button onClick={addMovie}  variant="contained">Submit</Button>
+        <Button onClick={addMovie} variant="contained">Submit</Button>
       </form>
 
     </div>
