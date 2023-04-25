@@ -6,6 +6,7 @@ import TotalColorList  from './components/movielist/colorboxgame';
 import { NavLink, Routes, Route,useNavigate,useParams, Navigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Addmovieform from './components/movielist/Addmovies';
  
 
 var obj = [{
@@ -77,20 +78,25 @@ function App() {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
+          <NavLink to="/add-movies">Add Movie</NavLink>
+        </li>
+        <li>
           <NavLink to="/Movies-list">Movies</NavLink>
         </li>
         <li>
           <NavLink to="/color-game">Color Game</NavLink>
         </li>
+       
       </ul>
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Movies" element={<MovieList  parentfn={Parent} user={obj}></MovieList>} />
+        <Route path="/Movies" element={<MovieList updateduser={data}></MovieList>} />
         <Route path="/Movies-list" element={<Navigate replace to="/Movies"></Navigate>} />
         <Route path="/Movies-list/:id" element={<MovieDetails movielist={data}></MovieDetails>} />
         <Route path="/color-game" element= { <TotalColorList parentfn={Parent} color={Initial_color_list}></TotalColorList>} />
         <Route path="/404" element={<NotFoundPage></NotFoundPage>}/>
         <Route path="*" element={<Navigate replace to="/404"></Navigate>} />
+        <Route path="/add-movies" element={<Addmovieform parentfn={Parent} user={obj}></Addmovieform>} />
         </Routes>
     </div>
   );
