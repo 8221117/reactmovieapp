@@ -113,7 +113,7 @@ const MovieList =({user,parentfn})=>{
       </form>
       
      <br></br>
-     <ul>
+     <ul className="movie-list" >
        {data.map((eachmovie,index)=>(
        <MovieListItem name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index}></MovieListItem>
        

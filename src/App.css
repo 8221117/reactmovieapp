@@ -1,1 +1,27 @@
 
+
+
+.add-color{
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+.add-movie-form{
+   display: flex;
+   flex-direction: column;
+   gap:10px;
+   margin-bottom: 16px;
+
+}
+
+
+
+.not-found{
+    
+  width:100%;
+  object-fit: cover;
+
+
+}

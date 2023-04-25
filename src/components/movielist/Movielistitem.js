@@ -43,7 +43,7 @@ return(
 
 
 
-    <p style={styles}>⭐{rating}</p>
+    <p style={styles} className='movie-rating'>⭐{rating}</p>
 
  
 
