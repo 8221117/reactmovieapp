@@ -1,4 +1,39 @@
+.App{
 
+  margin:16px;
+}
+
+.user-profile{
+
+  height: 200px;
+  width:200px;
+
+  /*zoom in */
+  object-fit:cover;
+  border-radius: 50%;
+
+
+}
+
+.bt-sz-lg{
+
+  font-size:20px;
+}
+
+
+.movie-specs{
+   
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+}
+
+.movie-container{
+
+  width:340px;
+}
 
 
 .add-color{

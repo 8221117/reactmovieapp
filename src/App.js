@@ -7,6 +7,14 @@ import { NavLink, Routes, Route,useNavigate,useParams, Navigate } from "react-ro
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Addmovieform from './components/movielist/Addmovies';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
  
 
 var obj = [{
@@ -67,14 +75,21 @@ function App() {
 
   }
 
-
+  const navigate = useNavigate();
 
   return (
     <div className="App">
-      
-      
       <ul>
-        <li>
+      <AppBar position="static">
+         <Toolbar>
+         <Button color="inherit" onClick={()=>navigate("/")}>Home</Button>
+         <Button color="inherit" onClick={()=>navigate("/add-movies")}>Add Movie</Button>
+         <Button color="inherit" onClick={()=>navigate("/Movies-list")} >Movies</Button>
+         <Button color="inherit" onClick={()=>navigate("/color-game")}>Color Game</Button>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+        </AppBar>
+        {/* <li>
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
@@ -85,14 +100,14 @@ function App() {
         </li>
         <li>
           <NavLink to="/color-game">Color Game</NavLink>
-        </li>
+        </li> */}
        
       </ul>
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Movies" element={<MovieList updateduser={data} setData={setData}></MovieList>} />
         <Route path="/Movies-list" element={<Navigate replace to="/Movies"></Navigate>} />
-        <Route path="/Movies-list/:id" element={<MovieDetails movielist={data}></MovieDetails>} />
+        <Route path="/Movies-list/:id" element={<MovieDetails movielist={data} ></MovieDetails>} />
         <Route path="/color-game" element= { <TotalColorList parentfn={Parent} color={Initial_color_list}></TotalColorList>} />
         <Route path="/404" element={<NotFoundPage></NotFoundPage>}/>
         <Route path="*" element={<Navigate replace to="/404"></Navigate>} />

@@ -119,12 +119,12 @@ const MovieList =({updateduser,setData})=>{
     //  <br></br>
      <ul className="movie-list" >
        {updateduser.map((eachmovie,index)=>(
-       <MovieListItem key={index} name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index} deleteButton={<IconButton aria-label="delete" size="small">
-        <DeleteIcon  onClick={()=>{console.log("deleteing movie",index)
+       <MovieListItem key={index} name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index} deleteButton={<IconButton aria-label="delete" size="small" onClick={()=>{console.log("deleteing movie",index)
        let copyupdateduser = [...updateduser]
          copyupdateduser.splice(index,1);
          setData(copyupdateduser)
-       }} fontSize="inherit" /></IconButton> }></MovieListItem>))}
+       }}>
+        <DeleteIcon fontSize="inherit" color="error"/></IconButton> }></MovieListItem>))}
      </ul>
 
 
