@@ -103,6 +103,7 @@ function App() {
         </li> */}
        
       </ul>
+      <div className='router-container'>
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Movies" element={<MovieList updateduser={data} setData={setData}></MovieList>} />
@@ -113,6 +114,7 @@ function App() {
         <Route path="*" element={<Navigate replace to="/404"></Navigate>} />
         <Route path="/add-movies" element={<Addmovieform parentfn={Parent} user={obj}></Addmovieform>} />
         </Routes>
+        </div>
     </div>
   );
 }

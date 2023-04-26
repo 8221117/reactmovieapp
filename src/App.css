@@ -1,7 +1,4 @@
-.App{
 
-  margin:16px;
-}
 
 .user-profile{
 
@@ -35,6 +32,29 @@
   width:340px;
 }
 
+.movie-rating{
+
+  font-size: 18px;
+
+}
+
+
+.movie-list{
+
+  display: flex;
+  gap:16px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+
+}
+.counter-container{
+
+
+  display: flex;
+  gap: 10px;
+}
+
 
 .add-color{
 
@@ -51,12 +71,24 @@
 
 }
 
+.movie-detail-container{
+
+ max-width: 800px;
+
+}
 
 
 .not-found{
     
   width:100%;
   object-fit: cover;
+
+
+}
+
+.router-container{
+
+  margin:16px;
 
 
 }
