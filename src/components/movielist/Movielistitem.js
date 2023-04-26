@@ -8,10 +8,12 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+// import Deletebutton from './Deletebutton';
+
 import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from 'react-router-dom';
 
-const MovieListItem = ({name,rating,summary,poster,id,trailer})=>{
+const MovieListItem = ({name,rating,summary,poster,id,trailer,deleteButton})=>{
 
   const [show,setShow]= useState(false);
 
@@ -72,6 +74,9 @@ return(
     
      
     <Counter></Counter>
+    {deleteButton}
+    {/* <Deletebutton/> */}
+   
      </li>
   </div>
 

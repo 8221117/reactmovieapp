@@ -3,6 +3,9 @@ import React,{useState} from "react";
 import MovieListItem from "./Movielistitem";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import Deletebutton from "./Deletebutton";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 // import AddMoviePage from "./Addmovies";
 
 // var obj = [{
@@ -33,7 +36,7 @@ import TextField from '@mui/material/TextField';
 // }]
 
 
-const MovieList =({updateduser})=>{
+const MovieList =({updateduser,setData})=>{
 
   //  const newList = [...user]
 
@@ -116,9 +119,12 @@ const MovieList =({updateduser})=>{
     //  <br></br>
      <ul className="movie-list" >
        {updateduser.map((eachmovie,index)=>(
-       <MovieListItem key={index} name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index}></MovieListItem>
-       
-       ))}
+       <MovieListItem key={index} name={eachmovie.moviename} rating={eachmovie.rating} summary={eachmovie.summary} poster={eachmovie.poster} trailer={eachmovie.trailer} id={index} deleteButton={<IconButton aria-label="delete" size="small">
+        <DeleteIcon  onClick={()=>{console.log("deleteing movie",index)
+       let copyupdateduser = [...updateduser]
+         copyupdateduser.splice(index,1);
+         setData(copyupdateduser)
+       }} fontSize="inherit" /></IconButton> }></MovieListItem>))}
      </ul>
 
 
@@ -127,7 +133,7 @@ const MovieList =({updateduser})=>{
     // </div>
     
 
-  )
+)
 };
 
 

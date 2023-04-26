@@ -90,7 +90,7 @@ function App() {
       </ul>
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Movies" element={<MovieList updateduser={data}></MovieList>} />
+        <Route path="/Movies" element={<MovieList updateduser={data} setData={setData}></MovieList>} />
         <Route path="/Movies-list" element={<Navigate replace to="/Movies"></Navigate>} />
         <Route path="/Movies-list/:id" element={<MovieDetails movielist={data}></MovieDetails>} />
         <Route path="/color-game" element= { <TotalColorList parentfn={Parent} color={Initial_color_list}></TotalColorList>} />
