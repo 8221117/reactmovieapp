@@ -12,9 +12,13 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+
  
 
 var obj = [{
@@ -66,6 +70,13 @@ function App() {
 
   const[data,setData] = useState(obj);
 
+  const[mode,setMode] = useState("light");
+
+  const Theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
 
  
   function Parent(c){
@@ -78,6 +89,8 @@ function App() {
   const navigate = useNavigate();
 
   return (
+    <ThemeProvider theme={Theme}>
+    <Paper style={{borderRadius:0,minHeight:"100vh"}} elevation={4} >
     <div className="App">
       <ul>
       <AppBar position="static">
@@ -86,7 +99,8 @@ function App() {
          <Button color="inherit" onClick={()=>navigate("/add-movies")}>Add Movie</Button>
          <Button color="inherit" onClick={()=>navigate("/Movies-list")} >Movies</Button>
          <Button color="inherit" onClick={()=>navigate("/color-game")}>Color Game</Button>
-          <Button color="inherit">Login</Button>
+         <Button color="inherit" startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}onClick={()=>setMode(mode=="light"?"dark":"light")}>{mode=="light"?"dark":"light"}Mode</Button>
+         <Button color="inherit">Login</Button>
         </Toolbar>
         </AppBar>
         {/* <li>
@@ -116,6 +130,8 @@ function App() {
         </Routes>
         </div>
     </div>
+    </Paper>
+    </ThemeProvider>
   );
 }
 
