@@ -1,3 +1,1 @@
-console.log("Starting");
-console.log("Starting one")
-console.log("Starting  1");
+console.log("Starting 3");
