@@ -11,7 +11,7 @@ function Counter(){
   const [like,setlike] = useState(0);
   const [dislike,setdislike] = useState(0);
 
-
+console.log('error')
 return(
 
 <div className="counter-container">
