@@ -1,8 +1,5 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom"
-
-
-// import MovieListItem from "./Movielistitem";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -29,11 +26,6 @@ const Addmovieform = ({user, parentfn}) => {
 
 
         e.preventDefault();
-        //  console.log("adding the movie data");
-        //  console.log(moviename);
-        //  console.log(rating);
-        //  console.log(summary);
-        //  console.log(poster);
         const newObj = {
             moviename: moviename,
             rating: rating,
@@ -64,11 +56,6 @@ const Addmovieform = ({user, parentfn}) => {
         setName(e.target.value)
 
     }
-
-    //console.log("test changes");
-
-    //  useNavigate("/Movies");
-
 
     return (
         <div>
